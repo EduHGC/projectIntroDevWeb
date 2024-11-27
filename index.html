@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Software Livre</title>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-box" id="quiz-box">
+            <div class="title-quiz">
+                <h2>Quiz do software livre </h2>
+                <h3>Vamos ver se você é do time Bill Gates ou Linus Torvald</h3>
+            </div>
+            <div class="title">
+                <p>Pergunta</p>
+            </div>            
+            <div class="sequence-question">
+                <p><span id="current-question"></span> / <strong id="total-questions"></strong></p>
+            </div>
+
+            <div class="question-box" id="question-box">
+                <p class="question"><span id="question-number"></span> <span id="description-question"></span></p>
+            </div>
+            <div id="alternative-box"></div>
+            <div class="button-box">
+                <button type="button" class="next-btn button" id="next-question-btn">Próxima pergunta</button>
+                <button type="button" class="next-btn button submite-btn" id="submite">Enviar Respostas</button>
+            </div>
+        </div>
+        <div class="result-show" id="result">
+            <h2 id="answer-correct"></h2>
+            <div class="image-box">
+                <img id="image" src="" alt="">
+            </div>
+            <div class="button-box">
+              <button class="button" onclick="location.reload();">Recomeçar o Quiz!</button>
+            </div>
+          </div>     
+    </div> 
+    <script src="script.js"></script>
+</body>
+</html>
