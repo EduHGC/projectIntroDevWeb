@@ -231,10 +231,14 @@ submiteQuiz.addEventListener("click", ()=>{
     result.style.display="block";
     answerCorrect.innerHTML=`Quantidade de respostas corretas -> ${score} / ${quizData.length}`;
     const imageBox = document.getElementById("image");
-    if(score >=8) {
-        imageBox.src ="assests/linuximagem.png"; 
+    if(score <= 4) {
+        imageBox.src = "assests/img4.png"; 
+    }else if(score <= 7){
+        imageBox.src = "assests/img3.png"; 
+    }else if(score <= 10){
+        imageBox.src = "assests/img2.png";
     }else{
-        imageBox.src ="#"; 
+        imageBox.src = "assests/img1.png";
     }
 })
 
