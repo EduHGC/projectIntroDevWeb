@@ -1,3 +1,4 @@
+//Base de dados das perguntas
 const quizData = [
     {
         question: "Quem fundou o movimento de software livre?",
@@ -164,6 +165,7 @@ const result = document.getElementById("result");
 let currentQuestion = 0;
 let score= 0;
 
+//Função para carregar o quiz
 const loadQuiz=()=>{
     const questions = quizData[currentQuestion];
     const numbQuestion = document.getElementById("question-number");
@@ -176,6 +178,7 @@ const loadQuiz=()=>{
     currentQuestionValue.innerHTML = currentQuestion + 1;
     totalQuestions.innerHTML=`${quizData.length}`;
     
+    //Gera as perguntas
     let alternativesQuestions = '';
     questions.options.forEach((options, index) => {
         alternativesQuestions += `
@@ -189,20 +192,24 @@ const loadQuiz=()=>{
     alternativeBox.innerHTML = alternativesQuestions;
 }
 
+//função para checar as respostas
 const checkAnswer = () =>{
+    //Recebe as respostas selecionadas
     const selectedAnswaers = document.querySelectorAll(`input[name="question${currentQuestion}"]:checked`);
+    //Recebe as repostas true da base de dados
     const correctAnswers = quizData[currentQuestion].options.filter(option => option.correct);
 
-    
-
+    //Compara se o tamanho da resposta do jogador e corretas são as mesmas
+    //AND transforma a NodeList de selectedAnswaers em array para comparar com as resposta da base de dados
     const isCorrect = correctAnswers.length === selectedAnswaers.length && Array.from(selectedAnswaers).every(input => quizData[currentQuestion].options[input.value].correct);
 
-
+    //Incrementa a pontuação
     if(isCorrect){
         score++;
     }
 }
 
+//Botão para avançar a questão
 nextQuestion.addEventListener("click", ()=>{
     const selectedAnswaers = document.querySelectorAll(`input[name="question${currentQuestion}"]:checked`);
     if(selectedAnswaers.length === 0){
@@ -226,6 +233,7 @@ nextQuestion.addEventListener("click", ()=>{
     }
 })
 
+//Botão para enviar a questão
 submiteQuiz.addEventListener("click", ()=>{
     quizBox.style.display="none";
     result.style.display="block";
