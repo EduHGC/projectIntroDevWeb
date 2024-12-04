@@ -175,7 +175,7 @@ const loadQuiz=()=>{
     descriptionQuestion.textContent = questions.question;
     currentQuestionValue.innerHTML = currentQuestion + 1;
     totalQuestions.innerHTML=`${quizData.length}`;
-
+    
     let alternativesQuestions = '';
     questions.options.forEach((options, index) => {
         alternativesQuestions += `
